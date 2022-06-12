@@ -86,7 +86,7 @@ String String::operator+(const String &rhs) {
 void operator+=(String &obj, const String &rhs) {
   obj.operator+(rhs);
 }
-// * Operator using getters & setters
+// Multiply string times user specified amount
 String operator*(String &obj, const int multiplyBy) {
   char* temp = new char[std::strlen(obj.get_m_str()) * multiplyBy + 1];
   // Cat cstrings together n times
