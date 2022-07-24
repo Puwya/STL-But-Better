@@ -106,11 +106,11 @@ class Queue {
     }
 
     ++size_;
-    T tmp = queue_[0], tmp2;
+    T leftValue = queue_[0], rightValue;
     for (int i = 1; i < size_; i++) {
-      tmp2 = queue_[i];
-      queue_[i] = tmp;
-      tmp = tmp2;
+      rightValue = queue_[i];
+      queue_[i] = leftValue;
+      leftValue = rightValue;
     }
     queue_[0] = val;
     tail_ = &queue_[size_ - 1];
