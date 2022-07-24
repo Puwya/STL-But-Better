@@ -75,7 +75,6 @@ class Queue {
 
   T dequeue() {
     if (size_ <= 0) {
-      std::cout << "dequeue attempting to access empty queue\n";
       throw std::string("dequeue attempting to access empty queue");
     }
     T val = *tail_;
@@ -115,7 +114,10 @@ class Queue {
     queue_[0] = val;
     tail_ = &queue_[size_ - 1];
   }
-  T front() const { return *tail_; }
+  T front() const {
+    if (this->isEmpty()) throw std::string("front attempting to access empty queue");
+    return *tail_;
+  }
 
  private:
   int size_;
